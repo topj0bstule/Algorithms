@@ -1,6 +1,6 @@
 # Игнорировать всё
 *
-*.vs
+.vs/
 
 # Разрешить .gitignore
 !.gitignore
