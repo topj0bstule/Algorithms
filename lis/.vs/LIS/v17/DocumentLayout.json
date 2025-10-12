@@ -1,0 +1,69 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\CPlusPlus_Projects\\studying\\Algorithms\\LIS\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{FC2BD3C8-08D0-40FB-BB82-8860CADBAC85}|LIS\\LIS.vcxproj|C:\\CPlusPlus_Projects\\studying\\Algorithms\\LIS\\LIS\\LIS.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{FC2BD3C8-08D0-40FB-BB82-8860CADBAC85}|LIS\\LIS.vcxproj|solutionrelative:LIS\\LIS.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\CPlusPlus_Projects\\studying\\Algorithms\\LIS\\LIS\\output.txt||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:LIS\\output.txt||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\CPlusPlus_Projects\\studying\\Algorithms\\LIS\\LIS\\input.txt||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:LIS\\input.txt||{8B382828-6202-11D1-8870-0000F87579D2}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "input.txt",
+              "DocumentMoniker": "C:\\CPlusPlus_Projects\\studying\\Algorithms\\LIS\\LIS\\input.txt",
+              "RelativeDocumentMoniker": "LIS\\input.txt",
+              "ToolTip": "C:\\CPlusPlus_Projects\\studying\\Algorithms\\LIS\\LIS\\input.txt",
+              "RelativeToolTip": "LIS\\input.txt",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAALAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
+              "WhenOpened": "2025-10-12T14:13:29.581Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "output.txt",
+              "DocumentMoniker": "C:\\CPlusPlus_Projects\\studying\\Algorithms\\LIS\\LIS\\output.txt",
+              "RelativeDocumentMoniker": "LIS\\output.txt",
+              "ToolTip": "C:\\CPlusPlus_Projects\\studying\\Algorithms\\LIS\\LIS\\output.txt",
+              "RelativeToolTip": "LIS\\output.txt",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
+              "WhenOpened": "2025-10-12T14:15:41.923Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "LIS.cpp",
+              "DocumentMoniker": "C:\\CPlusPlus_Projects\\studying\\Algorithms\\LIS\\LIS\\LIS.cpp",
+              "RelativeDocumentMoniker": "LIS\\LIS.cpp",
+              "ToolTip": "C:\\CPlusPlus_Projects\\studying\\Algorithms\\LIS\\LIS\\LIS.cpp",
+              "RelativeToolTip": "LIS\\LIS.cpp",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-10-12T13:51:03.674Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
