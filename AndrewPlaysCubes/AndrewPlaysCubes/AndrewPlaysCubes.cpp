@@ -36,9 +36,7 @@ int main()
     short kolvoCubes = 0;
     std::cin >> kolvoCubes;
     CubeIndexes* cubes = new CubeIndexes[kolvoCubes];
-    for (size_t i = 0; i < kolvoCubes; i++) {
-        std::cin >> cubes[i].rows >> cubes[i].columns;
-    }
+    for (size_t i = 0; i < kolvoCubes; i++) std::cin >> cubes[i].rows >> cubes[i].columns;
     std::cout << minAndrewPlays(kolvoCubes, cubes);
     delete[] cubes;
     return 0;
