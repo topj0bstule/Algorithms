@@ -32,5 +32,9 @@ int main()
     for (size_t i = 0; i < n; i++) out << parents[i] << " ";
     out << "\n";
     out.close();
+    delete[] parents;
+    for (size_t i = 0; i < n; i++) delete[] matr[i];
+    delete[] matr;
+    matr = nullptr;
     return 0;
 }
