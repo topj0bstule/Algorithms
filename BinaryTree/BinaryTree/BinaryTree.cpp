@@ -1,12 +1,14 @@
 ﻿#include <iostream>
 #include <fstream>
-#include <vector>
 
 struct Tree {
     int number;
-    Tree* left;
-    Tree* right;
-    Tree(int number_) : number(number_), left(nullptr), right(nullptr) {};
+    int height = 0;
+    int kolvoVershin = 0;
+    bool isIt = 0;
+    Tree* left = nullptr;
+    Tree* right = nullptr;
+    Tree(int number_) : number(number_){}
 };
 
 int max(int a, int b) {
@@ -21,14 +23,17 @@ void printDirectLeftBypass(Tree* tree, std::ofstream& out) {
     }
 }
 
-Tree* insertTree(Tree* tree, int& temp) {
-    if (tree == nullptr) return new Tree(temp);
-    if (temp > tree->number)
-        tree->right = insertTree(tree->right, temp);
-    else if (temp < tree->number)
-        tree->left = insertTree(tree->left, temp);
-    return tree;
+void insertTree(Tree*& root, int temp) {
+    Tree** link = &root;
+    while (*link) {
+        Tree* node = *link;
+        if (temp < node->number) link = &node->left;
+        else if (temp > node->number) link = &node->right;
+        else return;
+    }
+    *link = new Tree(temp);
 }
+
 
 Tree* delNumFromTree(Tree* tree, int number) {
     if (tree != nullptr) {
@@ -66,40 +71,49 @@ Tree* delNumFromTree(Tree* tree, int number) {
     return tree;
 }
 
-int treeHeight(Tree* tree) {
-    if (tree == nullptr) return 0;
-    return max(treeHeight(tree->right), treeHeight(tree->left)) + 1;
+void treeAction(Tree* tree, int& count) {
+    if (tree == nullptr) return;
+    treeAction(tree->left, count);
+    treeAction(tree->right, count);
+    if (tree->left == nullptr && tree->right == nullptr) {
+        tree->height = 0;
+        tree->kolvoVershin = 1;
+        tree->isIt = false;
+    }
+    else if (tree->left == nullptr){
+        tree->height = tree->right->height + 1;
+        tree->kolvoVershin = tree->right->kolvoVershin + 1;
+        tree->isIt = false;
+    }
+    else if (tree->right == nullptr) {
+        tree->height = tree->left->height + 1;
+        tree->kolvoVershin = tree->left->kolvoVershin + 1;
+        tree->isIt = false;
+    }
+    else {
+        tree->height = max(tree->left->height, tree->right->height) + 1;
+        tree->kolvoVershin = tree->left->kolvoVershin + tree->right->kolvoVershin + 1;
+        if ((tree->left->height == tree->right->height) && (tree->left->kolvoVershin != tree->right->kolvoVershin)) {
+            tree->isIt = true;
+            count++;
+        }
+        else tree->isIt = false;
+    }
 }
 
-int kolvoNumbers(Tree* tree) {
-    if (tree != nullptr)
-        return 1 + kolvoNumbers(tree->left) + kolvoNumbers(tree->right);
-    else return 0;
+int findEverageValue(Tree* tree, int& count, int& temp) {
+    if (tree == nullptr) return -1;
+    int left = findEverageValue(tree->left, count, temp);
+    if (left != -1) return left;
+    if (tree->isIt) {
+        if (temp == count) return tree->number;
+        temp++;
+    }
+    int right = findEverageValue(tree->right, count, temp);
+    if (right != -1) return right;
+    return -1;
 }
 
-bool equalHeightSubtree(Tree* tree) {
-    if (tree == nullptr) return 1;
-    return treeHeight(tree->left) == treeHeight(tree->right) ? 1 : 0;
-}
-
-bool equalKolvoNumbers(Tree* tree) {
-    if (tree == nullptr) return 1;
-    return kolvoNumbers(tree->left) == kolvoNumbers(tree->right) ? 1 : 0;
-}
-
-std::vector<int> findAllEverageEl(Tree* tree, std::vector<int>& result) {
-    if (tree == nullptr) return result;
-    findAllEverageEl(tree->left, result);
-    if (equalHeightSubtree(tree) && !equalKolvoNumbers(tree))
-        result.push_back(tree->number);
-    findAllEverageEl(tree->right, result);
-    return result;
-}
-
-int findEverageValue(std::vector<int> result) {
-    if (result.size() == 0 || result.size() % 2 == 0) return -1;
-    return result[result.size() / 2];
-}
 
 void deleteTree(Tree* tree) {
     if (tree == nullptr) return;
@@ -107,7 +121,6 @@ void deleteTree(Tree* tree) {
     deleteTree(tree->right);
     delete tree;
 }
-
 
 int main()
 {
@@ -119,20 +132,25 @@ int main()
 
     Tree* tree = nullptr;
     int temp = 0;
-    while (in >> temp) tree = insertTree(tree, temp);
+    while (in >> temp) insertTree(tree, temp);
     in.close();
 
-    std::vector<int> result;
-    findAllEverageEl(tree, result);
-    if (!result.empty())
-        tree = delNumFromTree(tree, findEverageValue(result));
+    int count = 0;
+    treeAction(tree, count);
 
     std::ofstream out("output.txt");
     if (!out.is_open()) {
         std::cerr << "Failed opening file.\n";
         return 1;
     }
+    if (count % 2 == 1) {
+        int tempCounter = 0;
+        count /= 2;
+        tree = delNumFromTree(tree, findEverageValue(tree, count, tempCounter));
+    }
     printDirectLeftBypass(tree, out);
     out.close();
     deleteTree(tree);
+
+    return 0;
 }
